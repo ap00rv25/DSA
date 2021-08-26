@@ -4,19 +4,18 @@ import java.io.*;
 
 class Codechef
 {
-    static int fact(int n, int k)
+    static int getsum(int n)
     {
-        if(n==0 || n==1)
+        if(n==0)
         {
-            return k;
+            return 0;
         }
-        return fact(n-1, k*n);
+        return getsum(n/10)+n%10;
     }
 	public static void main (String[] args) throws java.lang.Exception
 	{
 	    Scanner sc = new Scanner(System.in);
 	    int n = sc.nextInt();
-        int k = 1;
-	    System.out.print(fact(n,k));
+	    System.out.print(getsum(n));
 	}
 }
