@@ -1,13 +1,9 @@
-
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
 class Codechef
 {
-    static int myjos(int n,int k){
-        return jos(n,k)+1;
-    }
     static int jos(int n, int k){
         if(n==1){
             return 0;
@@ -22,6 +18,6 @@ class Codechef
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int k = sc.nextInt();
-		System.out.print(jos(n,k));
+		System.out.print(jos(n,k)+1);
 	}
 }
