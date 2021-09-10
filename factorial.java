@@ -16,7 +16,7 @@ class Codechef
 	{
 	    Scanner sc = new Scanner(System.in);
 	    int n = sc.nextInt();
-        int k = 1;
+            int k = 1;
 	    System.out.print(fact(n,k));
 	}
 }
