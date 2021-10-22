@@ -28,6 +28,5 @@ int main() {
 
     snakepattern(arr);
 
-	// your code goes here
 	return 0;
 }
