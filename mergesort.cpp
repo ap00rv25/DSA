@@ -1,24 +1,36 @@
 #include<bits/stdc++.h>
 using namespace std;
-void merge_sort(int a[], int b[] , int m, int n){
-    int i=0,j=0;
-    while(i<m && j<n){
-        if(a[i]<b[j])
-            cout<<a[i++]<<" ";
-        else
-            cout<<b[j++]<<" ";
+
+void merge(int a[], int l[], int r[], int ln, int rn) {
+    int i=0,j=0,k=0;
+    while(i<ln && j<rn) {
+        if(l[i]<r[j]) a[k++] = l[i++];
+        else a[k++] = r[j++];
     }
-    while(i<m)
-        cout<<a[i++]<<" ";
-    while(j<n)
-        cout<<b[j++]<<" "; 
+    while(i<ln) a[k++] = l[i++];
+    while(j<rn) a[k++] = r[j++];
 }
-int main(){
-    int a[]={10,15,20,40};
-    int b[]={5,6,6,10,15};
-	
-	int m=sizeof(a)/sizeof(a[0]);
-	int n=sizeof(b)/sizeof(b[0]);
-    merge_sort(a,b,m,n);
+
+void merge_sort(int a[], int n) {
+    if(n<2) return;
+    int mid = n/2;
+    int l[mid];
+    int r[n-mid];
+    for(int i=0;i<mid;i++) {
+        l[i] = a[i];
+    }
+    for(int i=mid;i<n;i++) {
+        r[i-mid] = a[i];
+    }
+    merge_sort(l,mid);
+    merge_sort(r,n-mid);
+    merge(a,l,r,mid,n-mid);
+}
+
+int main() {
+    int arr[] = {8,2,5,3,1,4,6,7};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    merge_sort(arr,n);
+    for(auto x : arr) cout<<x<<" ";
     return 0;
 }
